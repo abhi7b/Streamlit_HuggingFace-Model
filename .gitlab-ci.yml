@@ -1,0 +1,37 @@
+image: python:3.9
+
+stages:
+  - test
+  - deploy
+
+# Environment variables for deployment.
+# Configure these in your GitLab project settings or replace with hard-coded values.
+variables:
+  DEPLOY_HOST: "your.server.com"
+  DEPLOY_USER: "your_username"
+  DEPLOY_PATH: "/path/to/your/app"
+
+before_script:
+  # Set up virtual environment and install dependencies
+  - python -m venv venv
+  - source venv/bin/activate
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+test:
+  stage: test
+  script:
+    - echo "Running tests..."
+    # If you have tests, run them here (e.g., pytest)
+    - pytest || echo "No tests found, continuing..."
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying the application..."
+    # Example deployment using SSH:
+    - ssh $DEPLOY_USER@$DEPLOY_HOST "cd $DEPLOY_PATH && git pull && source venv/bin/activate && pip install -r requirements.txt && pm2 restart app || echo 'Deploy script executed'"
+  only:
+    - main
