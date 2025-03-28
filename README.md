@@ -1,9 +1,5 @@
 # Document Summarizer
 
-[![Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io)
-
-## Overview
-
 **Document Summarizer** is an intuitive web application built using Streamlit and Hugging Face's Transformers library. The app uses the powerful `facebook/bart-large-cnn` model to generate concise summaries from pasted text inputs. It is designed with a futuristic, dark-themed user interface enhanced with neon-blue accents.
 
 ## Key Features
@@ -55,10 +51,6 @@ streamlit run app.py
 
 - **Streamlit Cloud:** Directly deploy - 
 
-## Customization
-
-- Modify summarization parameters like `max_new_tokens` or `min_length` directly in `app.py`.
-- Customize UI elements in the embedded CSS within the `app.py` file to suit personal preferences.
 
 ## License
 
