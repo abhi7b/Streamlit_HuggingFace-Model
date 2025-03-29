@@ -47,10 +47,6 @@ pip install streamlit transformers
 streamlit run app.py
 ```
 
-## Deployment
-
-- **Streamlit Cloud:** Directly deploy - 
-
 
 ## License
 
